@@ -1,6 +1,7 @@
-import React from 'react'
+import * as React  from 'react'
+import { useEffect } from 'react'
 import TodoCard from '../components/TodoCard'
-import TodoComplete from '../components/TodoComplete'
+// import TodoComplete from '../components/TodoComplete'
 import TodoForm from '../components/TodoForm'
 
 interface Todo {
@@ -15,6 +16,7 @@ const TodoItems: Todo[] = [
 ]
 
 export default function Home() {
+
   return (
     <div className='bg-slate-500 w-full fixed h-screen pt-28'>
       <span className='flex justify-center mb-10'>

@@ -1,17 +1,23 @@
 import React from 'react'
+import { Todo } from "../pages/Home"
 import { TrashIcon } from '@heroicons/react/solid'
 import { CheckIcon } from '@heroicons/react/outline'
-interface Todo {
-  TodoItems?: Todo[]
-  name?: string,
-  completed?: boolean
+// interface Todo {
+//   TodoItems?: Todo[]
+//   name?: string,
+//   completed?: boolean
+// }
+
+interface Props {
+  newTaskList: Todo[],
+  setNewTaskList: React.Dispatch<React.SetStateAction<Todo[]>>
 }
 
-export default function TodoCard({TodoItems}: Todo) {
+export default function TodoCard({newTaskList, setNewTaskList}: Props) {
   return (
     <React.Fragment>
       <div className="container flex flex-col gap-12">
-        {TodoItems?.map((item, index) => (
+        {newTaskList?.map((item, index) => (
           <div key={index} className="bg-emerald-500 rounded-box place-items-center h-24 px-5 py-8 text-xl flex justify-around">
             <ul className='text-white'>        
               <li>{item.name}</li>

@@ -16,8 +16,10 @@ export default function TodoCard({TodoItems}: Todo) {
             <ul className='text-white'>        
               <li>{item.name}</li>
             </ul>
-            <CheckIcon className='h-5 w-5 text-white'/>
+            <span className='flex'>
+            <CheckIcon className='h-5 w-5 text-white mr-6'/>
             <TrashIcon className='h-5 w-5 text-white'/>
+            </span>
           </div>
         ))}
       </div>

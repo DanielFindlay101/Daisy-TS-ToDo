@@ -1,5 +1,4 @@
 import * as React  from 'react'
-import { useEffect } from 'react'
 import TodoCard from '../components/TodoCard'
 // import TodoComplete from '../components/TodoComplete'
 import TodoForm from '../components/TodoForm'

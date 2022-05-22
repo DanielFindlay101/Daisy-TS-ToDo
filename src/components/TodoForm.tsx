@@ -8,27 +8,29 @@ interface Todo {
 }
 
 export default function TodoForm({TodoItems}: Todo) {
-  const [newTask, setNewTask] = useState<Todo>({ name: '', completed: false })
-  const [newTaskList, setNewTaskList] = useState<Todo>({ name: '', completed: false })
+  const [newTask, setNewTask] = useState<string>("")
+  const [newTaskList, setNewTaskList] = useState<Todo[]>([])
 
   const submitForm = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    setNewTask(() => [...newTask, newTodo()])
-    setNewTaskList("")
+
+    if(newTask){
+      setNewTaskList([...newTaskList, {name: newTask, completed: false}])
+      setNewTask("")
+    }
    }
 
-   function newTodo(newTaskList){
-     return { name: "", completed: false}
-   }
-
+   console.log(newTaskList);
+   
+   
   return (
     <React.Fragment>
         <form onSubmit={submitForm} className="flex">
           <label>
             <h1 className='text-2xl font-bold text-slate-100 text-center mb-4'>Add a new task:</h1>
             <input type="text" placeholder="Add Task:" className="input input-bordered input-accent input-lg w-full max-w-xs"
-              onChange={(e) => setNewTask({name: e.target.value, completed: false})}
-              value={newTask.name}
+              onChange={(e) => setNewTask(e.target.value)}
+              value={newTask}
             />
           </label>
           <button className=' btn btn-primary ml-4 mt-[55px]'>Add</button>

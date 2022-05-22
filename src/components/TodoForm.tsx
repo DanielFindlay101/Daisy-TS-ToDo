@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 
 interface Todo {
   TodoItems?: Todo[]
@@ -9,17 +9,16 @@ interface Todo {
 
 export default function TodoForm({TodoItems}: Todo) {
   const [newTask, setNewTask] = useState<Todo>({ name: '', completed: false })
-
-  useEffect(() => {
-    console.log(TodoItems);
-    
-   }, [TodoItems])
+  const [newTaskList, setNewTaskList] = useState<Todo>({ name: '', completed: false })
 
   const submitForm = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    TodoItems?.push({name: newTask.name, completed: false})
-    console.log(TodoItems)
-    setNewTask({name: '', completed: false})
+    setNewTask(() => [...newTask, newTodo()])
+    setNewTaskList("")
+   }
+
+   function newTodo(newTaskList){
+     return { name: "", completed: false}
    }
 
   return (

@@ -19,9 +19,6 @@ export default function TodoForm({TodoItems}: Todo) {
       setNewTask("")
     }
    }
-
-   console.log(newTaskList);
-   
    
   return (
     <React.Fragment>

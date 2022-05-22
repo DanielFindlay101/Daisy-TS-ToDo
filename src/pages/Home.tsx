@@ -1,9 +1,10 @@
 import * as React  from 'react'
+import { useState } from 'react'
 import TodoCard from '../components/TodoCard'
 // import TodoComplete from '../components/TodoComplete'
 import TodoForm from '../components/TodoForm'
 
-interface Todo {
+export interface Todo {
   name: string,
   completed: boolean
 }
@@ -15,6 +16,7 @@ const TodoItems: Todo[] = [
 ]
 
 export default function Home() {
+  const [newTaskList, setNewTaskList] = useState<Todo[]>([])
 
   return (
     <div className='bg-slate-500 w-full fixed h-screen pt-28'>
@@ -23,9 +25,9 @@ export default function Home() {
       </span>
       <div className=' flex justify-center'>
         <div className="flex w-4/6 justify-center">
-          <TodoCard TodoItems={TodoItems} />
+          <TodoCard newTaskList={newTaskList} setNewTaskList={setNewTaskList} />
           <div className="divider divider-horizontal"></div>
-          <TodoCard TodoItems={TodoItems} />
+          <TodoCard newTaskList={newTaskList} setNewTaskList={setNewTaskList} />
         </div>
       </div>
     </div> 

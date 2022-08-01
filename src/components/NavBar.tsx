@@ -6,7 +6,7 @@ export default function NavBar() {
 
 	return (
 		<React.Fragment>
-			<div className="navbar bg-emerald-800">
+			<div className="navbar bg-emerald-500">
 				<div className="w-screen flex justify-start">
 					<h1 className="text-purple-800 font-bold text-2xl ml-12">Title.</h1>
 				</div>
